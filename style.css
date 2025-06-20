@@ -19,6 +19,8 @@
   --addBookBtn-card-hover-bg: rgba(226, 194, 144, 1);
   /* Background  for .title and .btns */
   --title-btns-bg: rgba(0, 0, 0, 0.05);
+  /* Dialog backdrop background color */
+  --dialog-backdrop-bg: rgba(24, 58, 29, 0.4);
 }
 
 /* CSS Reset */
@@ -154,6 +156,18 @@ dialog {
   width: 5rem;
 }
 
+.submitModalBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.submitModalBtn svg {
+  height: 5rem;
+  width: 5rem;
+}
+
 /* CSS Components */
 
 #library {
@@ -230,6 +244,10 @@ dialog {
   border-radius: 0.25rem;
 }
 
+dialog::backdrop {
+    background-color: var(--dialog-backdrop-bg);
+}
+
 .closeModalBtn {
     background: none;
     border: none;
@@ -243,5 +261,21 @@ dialog {
 
 .closeModalBtn:hover {
   color: var(--delete-btn-bg);
+  transform: scale(1.1);
+}
+
+.submitModalBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.submitModalBtn svg {
+    fill: currentColor;
+}
+
+.submitModalBtn:hover {
+  color: var(--read-btn-bg);
   transform: scale(1.1);
 }
