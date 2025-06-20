@@ -96,6 +96,7 @@ h6 {
 
 .title {
   overflow: hidden;
+  padding: 0.5rem 1rem;
 }
 
 .img {
@@ -133,6 +134,26 @@ h6 {
   width: 3rem;
 }
 
+dialog {
+  padding: 0.5rem;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: 10;
+}
+
+.closeModalBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.closeModalBtn svg {
+  height: 5rem;
+  width: 5rem;
+}
+
 /* CSS Components */
 
 #library {
@@ -148,9 +169,9 @@ h6 {
 }
 
 .addBookBtn:hover {
-    color: var(--new-book-btn-text);
-    background: var(--addBookBtn-card-hover-bg);
-    transform: scale(1.05);
+  color: var(--new-book-btn-text);
+  background: var(--addBookBtn-card-hover-bg);
+  transform: scale(1.05);
 }
 
 .book {
@@ -162,7 +183,6 @@ h6 {
 
 .title {
   font-size: 1rem;
-  padding: 0.5rem 1rem;
   background: var(--title-btns-bg);
   text-align: center;
   white-space: nowrap;
@@ -202,5 +222,26 @@ h6 {
 
 .title:hover {
   color: var(--new-book-btn-bg);
+  transform: scale(1.1);
+}
+
+dialog {
+  background: var(--new-book-btn-bg);
+  border-radius: 0.25rem;
+}
+
+.closeModalBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.closeModalBtn svg {
+    fill: currentColor;
+}
+
+.closeModalBtn:hover {
+  color: var(--delete-btn-bg);
   transform: scale(1.1);
 }

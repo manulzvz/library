@@ -99,3 +99,16 @@ function displayBooks(myLibrary) {
 }
 
 displayBooks(myLibrary);
+
+// Dialog / Modal Form for adding new books
+const addBookBtn = document.querySelector("[data-open-modal]");
+const closeForm = document.querySelector("[data-close-modal]");
+const modal = document.querySelector("[data-modal]");
+
+addBookBtn.addEventListener("click", () => {
+    modal.showModal();
+})
+
+closeForm.addEventListener("click", () => {
+    modal.close();
+})
