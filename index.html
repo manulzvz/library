@@ -16,7 +16,53 @@
       <button data-open-modal class="addBookBtn">Add Book</button>
       <dialog data-modal>
         <form>
-          <input type="text" />
+          <!--  -->
+          <h2>Add New Book</h2>
+          <div class="form-group">
+            <label for="bookName">Title:</label>
+            <input type="text" id="bookName" name="bookName" required />
+          </div>
+          <div class="form-group">
+            <label for="bookAuthor">Author:</label>
+            <input type="text" id="bookAuthor" name="bookAuthor" required />
+          </div>
+          <div class="form-group">
+            <label for="bookPages">Number of Pages:</label>
+            <input
+              type="number"
+              id="bookPages"
+              name="bookPages"
+              min="1"
+              required
+            />
+          </div>
+          <div class="form-group checkbox-group">
+            <input type="checkbox" id="bookRead" name="bookRead" />
+            <label for="bookRead">I have read this book</label>
+          </div>
+          <!--  -->
+          <button type="submit" formmethod="dialog" class="submitModalBtn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              version="1.1"
+              x="0px"
+              y="0px"
+              viewBox="0 0 100 125"
+              enable-background="new 0 0 100 100"
+              xml:space="preserve"
+            >
+              <g>
+                <rect x="27" y="54" width="9" height="9" />
+                <rect x="18" y="45" width="9" height="9" />
+                <rect x="63" y="36" width="9" height="9" />
+                <rect x="54" y="45" width="9" height="9" />
+                <rect x="45" y="54" width="9" height="9" />
+                <rect x="36" y="63" width="9" height="9" />
+                <rect x="72" y="27" width="9" height="9" />
+              </g>
+            </svg>
+          </button>
           <button data-close-modal class="closeModalBtn">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -38,28 +84,6 @@
                 <rect x="53" y="54" width="9" height="9" />
                 <rect x="62" y="63" width="9" height="9" />
                 <rect x="26" y="27" width="9" height="9" />
-              </g>
-            </svg>
-          </button>
-          <button type="submit" formmethod="dialog"  class="submitModalBtn">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              version="1.1"
-              x="0px"
-              y="0px"
-              viewBox="0 0 100 125"
-              enable-background="new 0 0 100 100"
-              xml:space="preserve"
-            >
-              <g>
-                <rect x="27" y="54" width="9" height="9" />
-                <rect x="18" y="45" width="9" height="9" />
-                <rect x="63" y="36" width="9" height="9" />
-                <rect x="54" y="45" width="9" height="9" />
-                <rect x="45" y="54" width="9" height="9" />
-                <rect x="36" y="63" width="9" height="9" />
-                <rect x="72" y="27" width="9" height="9" />
               </g>
             </svg>
           </button>

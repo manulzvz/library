@@ -142,6 +142,9 @@ dialog {
   left: 50%;
   translate: -50% -50%;
   z-index: 10;
+  max-width: 350px;
+  min-height: 300px;
+  position: relative;
 }
 
 .closeModalBtn {
@@ -149,6 +152,9 @@ dialog {
   align-items: center;
   justify-content: center;
   padding: 0;
+  position: absolute;
+  bottom: -10px;
+  right: 0;
 }
 
 .closeModalBtn svg {
@@ -161,11 +167,14 @@ dialog {
   align-items: center;
   justify-content: center;
   padding: 0;
+  position: absolute;
+  bottom: -5px;
+  right: 60px;
 }
 
 .submitModalBtn svg {
-  height: 5rem;
-  width: 5rem;
+  height: 4.5rem;
+  width: 4rem;
 }
 
 /* CSS Components */
@@ -245,18 +254,18 @@ dialog {
 }
 
 dialog::backdrop {
-    background-color: var(--dialog-backdrop-bg);
+  background-color: var(--dialog-backdrop-bg);
 }
 
 .closeModalBtn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .closeModalBtn svg {
-    fill: currentColor;
+  fill: currentColor;
 }
 
 .closeModalBtn:hover {
@@ -265,14 +274,14 @@ dialog::backdrop {
 }
 
 .submitModalBtn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .submitModalBtn svg {
-    fill: currentColor;
+  fill: currentColor;
 }
 
 .submitModalBtn:hover {
