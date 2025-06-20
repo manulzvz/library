@@ -1,13 +1,73 @@
+/* CSS Variables */
+
 :root {
   /* Retro Library Game Palette */
-  --background-color: #183a1d;      /* Deep Forest Green */
-  --book-card-bg: #e2c290;          /* Warm Tan */
-  --book-card-border: #a47149;      /* Brown border for book cards */
-  --new-book-btn-bg: #ffe066;       /* Bright Pixel Yellow */
-  --new-book-btn-text: #183a1d;     /* Dark text for contrast */
-  --delete-btn-bg: #d7263d;         /* Vivid Red */
-  --delete-btn-text: #fff;          /* White text */
-  --read-btn-bg: #3ec300;           /* Emerald Green */
-  --read-btn-text: #fff;            /* White text */
-  --retro-font: 'Press Start 2P', 'VT323', monospace; /* Optional retro font */
+  --background-color: #183a1d; /* Deep Forest Green */
+  --book-card-bg: #e2c290; /* Warm Tan */
+  --book-card-border: #a47149; /* Brown border for book cards */
+  --new-book-btn-bg: #ffe066; /* Bright Pixel Yellow */
+  --new-book-btn-text: #183a1d; /* Dark text for contrast */
+  --delete-btn-bg: #d7263d; /* Vivid Red */
+  --delete-btn-text: #fff; /* White text */
+  --read-btn-bg: #3ec300; /* Emerald Green */
+  --read-btn-text: #fff; /* White text */
+  --retro-font: "Press Start 2P", "VT323", monospace; /* Optional retro font */
 }
+
+/* CSS Reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  font-family: var(--retro-font);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
