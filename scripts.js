@@ -62,7 +62,7 @@ addBookToLibrary("1984", "George Orwell", 328, false);
 // Function that loops through the array and displays each book on the page
 function displayBooks(myLibrary) {
   // Clear the container first to avoid duplicates
-  library.innerHTML = "";
+//   library.innerHTML = "";
   // Loop through each book on the array
   for (const book of myLibrary) {
     // Create the main book div

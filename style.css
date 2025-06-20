@@ -14,6 +14,9 @@
   /* Retro font family */
   --retro-font: "Press Start 2P", "VT323", monospace; /* Optional retro font */
   /*  */
+  /* Background for .addBookBtn */
+  --addBookBtn-card-bg: rgba(226, 194, 144, 0.8);
+  --addBookBtn-card-hover-bg: rgba(226, 194, 144, 1);
   /* Background  for .title and .btns */
   --title-btns-bg: rgba(0, 0, 0, 0.05);
 }
@@ -136,6 +139,20 @@ h6 {
   background-color: var(--background-color);
 }
 
+.addBookBtn {
+  background: var(--addBookBtn-card-bg);
+  border: 2px solid var(--book-card-border);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.addBookBtn:hover {
+    color: var(--new-book-btn-text);
+    background: var(--addBookBtn-card-hover-bg);
+    transform: scale(1.05);
+}
+
 .book {
   background: var(--book-card-bg);
   border: 2px solid var(--book-card-border);
@@ -157,7 +174,6 @@ h6 {
   color: var(--new-book-btn-bg);
   transform: scale(1.1);
 }
-
 
 .btns {
   background: var(--title-btns-bg);
