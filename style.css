@@ -150,10 +150,17 @@ h6 {
   text-align: center;
   white-space: nowrap;
   text-overflow: ellipsis;
+  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
+.title:hover {
+  color: var(--new-book-btn-bg);
+  transform: scale(1.1);
+}
+
+
 .btns {
-    background: var(--title-btns-bg);
+  background: var(--title-btns-bg);
 }
 
 .btns button {
@@ -174,5 +181,10 @@ h6 {
 
 .readBtn:hover {
   color: var(--read-btn-bg);
+  transform: scale(1.1);
+}
+
+.title:hover {
+  color: var(--new-book-btn-bg);
   transform: scale(1.1);
 }
