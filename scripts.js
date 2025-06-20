@@ -82,8 +82,10 @@ function displayBooks(myLibrary) {
     // Create the respective buttons
     const deleteBtn = document.createElement("button");
     deleteBtn.classList.add("deleteBtn");
+    deleteBtn.innerHTML = svgDelete;
     const readBtn = document.createElement("button");
     readBtn.classList.add("readBtn");
+    readBtn.innerHTML = svgRead;
     // Append buttons to btnsDiv
     btnsDiv.appendChild(readBtn);
     btnsDiv.appendChild(deleteBtn);

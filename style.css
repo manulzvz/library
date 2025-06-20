@@ -13,6 +13,9 @@
   --read-btn-text: #fff; /* White text */
   /* Retro font family */
   --retro-font: "Press Start 2P", "VT323", monospace; /* Optional retro font */
+  /*  */
+  /* Background  for .title and .btns */
+  --title-btns-bg: rgba(0, 0, 0, 0.05);
 }
 
 /* CSS Reset */
@@ -72,19 +75,104 @@ h6 {
   text-wrap: balance;
 }
 
-/* CSS Layout */
+/* CSS Layout and Spacing (margins / paddings, height / width)*/
 
 #library {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
 }
 
+.book {
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  height: 100%;
+  overflow: hidden;
+}
 
-/* Ideas */
-/* - Page type of icon for books */
+.title {
+  overflow: hidden;
+}
 
-/* <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="-5.0 -10.0 110.0 135.0">
- <path d="m51.422 38.059v18.199h-2.8398v-18.199h-2.8398v-2.8398h-19.656v2.8398h-2.8398v26.727h25.336v-2.8398h-2.8398l-0.003907-2.8438h2.8398v2.8398h2.8398l0.003906-2.8398h2.8398v2.8398h-2.8398v2.8398h28.176l-0.003906-23.883h-5.6797v15.359h-19.656v2.8398h16.816v-26.723h-16.816v2.8398h-2.8398zm-8.5273 8.4961v2.8398h2.8398v2.8398h-2.8398v-2.8398h-9.3789v-2.8398zm0-7.3164v2.8398h2.8398v2.8398h-2.8398v-2.8398h-9.3789v-2.8398zm14.211 7.3164h9.3789v2.8398h-9.3789v2.8398h-2.8398v-2.8398h2.8398zm0-7.3164h9.3789v2.8398h-9.3789v2.8398h-2.8398v-2.8398h2.8398zm-33.859 25.547h-2.8477v-23.887h5.6797v15.359h19.656v2.8398l-16.809 0.003906v-26.727h16.816v2.8398h2.8398v2.8398h5.6797v-2.8398h19.656v2.8398h2.8398l-0.003906 2.8438v26.727h-53.516v-2.8398z" fill-rule="evenodd"/>
-</svg> */
+.img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  min-height: 120px;
+  max-height: 200px;
+}
+
+.img svg {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.btns {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  gap: 0.5rem;
+}
+
+.btns button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.btns button svg {
+  height: 3rem;
+  width: 3rem;
+}
+
+/* CSS Components */
+
+#library {
+  background-color: var(--background-color);
+}
+
+.book {
+  background: var(--book-card-bg);
+  border: 2px solid var(--book-card-border);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.title {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--title-btns-bg);
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.btns {
+    background: var(--title-btns-bg);
+}
+
+.btns button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.btns button svg {
+  fill: currentColor;
+}
+
+.deleteBtn:hover {
+  color: var(--delete-btn-bg);
+  transform: scale(1.1);
+}
+
+.readBtn:hover {
+  color: var(--read-btn-bg);
+  transform: scale(1.1);
+}
