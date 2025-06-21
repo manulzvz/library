@@ -147,7 +147,7 @@ dialog {
   position: relative;
 }
 
-.closeModalBtn {
+.close-modal-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -157,12 +157,12 @@ dialog {
   right: 0;
 }
 
-.closeModalBtn svg {
+.close-modal-btn svg {
   height: 5rem;
   width: 5rem;
 }
 
-.submitModalBtn {
+.submit-book-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -172,18 +172,18 @@ dialog {
   right: 60px;
 }
 
-.submitModalBtn svg {
+.submit-book-btn svg {
   height: 4.5rem;
   width: 4rem;
 }
 
 /* CSS Components */
 
-#library {
+body {
   background-color: var(--background-color);
 }
 
-.addBookBtn {
+.open-modal-btn {
   background: var(--addBookBtn-card-bg);
   border: 2px solid var(--book-card-border);
   border-radius: 8px;
@@ -191,7 +191,7 @@ dialog {
   transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
-.addBookBtn:hover {
+.open-modal-btn:hover {
   color: var(--new-book-btn-text);
   background: var(--addBookBtn-card-hover-bg);
   transform: scale(1.05);
@@ -257,34 +257,34 @@ dialog::backdrop {
   background-color: var(--dialog-backdrop-bg);
 }
 
-.closeModalBtn {
+.close-modal-btn {
   background: none;
   border: none;
   cursor: pointer;
   transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
-.closeModalBtn svg {
+.close-modal-btn svg {
   fill: currentColor;
 }
 
-.closeModalBtn:hover {
+.close-modal-btn:hover {
   color: var(--delete-btn-bg);
   transform: scale(1.1);
 }
 
-.submitModalBtn {
+.submit-book-btn {
   background: none;
   border: none;
   cursor: pointer;
   transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
-.submitModalBtn svg {
+.submit-book-btn svg {
   fill: currentColor;
 }
 
-.submitModalBtn:hover {
+.submit-book-btn:hover {
   color: var(--read-btn-bg);
   transform: scale(1.1);
 }
