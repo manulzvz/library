@@ -8,7 +8,7 @@ const addBookForm = document.querySelector("#addBookForm"); // The form itself
 // Library Array
 const myLibrary = [];
 
-// SVG Variables
+// SVG Variables (these remain global as they are constants)
 const svgBook = `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="-5.0 -10.0 110.0 135.0">
  <path d="m51.422 38.059v18.199h-2.8398v-18.199h-2.8398v-2.8398h-19.656v2.8398h-2.8398v26.727h25.336v-2.8398h-2.8398l-0.003907-2.8438h2.8398v2.8398h2.8398l0.003906-2.8398h2.8398v2.8398h-2.8398v2.8398h28.176l-0.003906-23.883h-5.6797v15.359h-19.656v2.8398h16.816v-26.723h-16.816v2.8398h-2.8398zm-8.5273 8.4961v2.8398h2.8398v2.8398h-2.8398v-2.8398h-9.3789v-2.8398zm0-7.3164v2.8398h2.8398v2.8398h-2.8398v-2.8398h-9.3789v-2.8398zm14.211 7.3164h9.3789v2.8398h-9.3789v2.8398h-2.8398v-2.8398h2.8398zm0-7.3164h9.3789v2.8398h-9.3789v2.8398h-2.8398v-2.8398h2.8398zm-33.859 25.547h-2.8477v-23.887h5.6797v15.359h19.656v2.8398l-16.809 0.003906v-26.727h16.816v2.8398h2.8398v2.8398h5.6797v-2.8398h19.656v2.8398h2.8398l-0.003906 2.8438v26.727h-53.516v-2.8398z" fill-rule="evenodd"/>
 </svg>`;
@@ -44,16 +44,19 @@ const svgDelete = `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox
  <path d="m29.418 100h41.16v-5.8828h-41.16z"/>
 </svg>`;
 
-// Object Constructor of Book
-function Book(name, author, pages, read) {
-  this.id = crypto.randomUUID(); // Unique ID for each book
-  this.name = name;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+// Book Class - this is a blueprint for each book object
+class Book {
+  constructor(name, author, pages, read) {
+    this.id = crypto.randomUUID(); // UNIQUE ID IS CRUCIAL FOR MANAGEMENT
+    this.name = name;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
 }
 
-// Function to create book and store it in an array
+// Function to create book and store it in the global array
+// This remains a function because it directly interacts with the global `myLibrary` array
 function addBookToLibrary(name, author, pages, read) {
   const newBook = new Book(name, author, pages, read);
   myLibrary.push(newBook);
@@ -74,135 +77,105 @@ function displayBooks() {
   library.innerHTML = "";
   // Re-insert the button
   library.appendChild(addBtn);
-  // Loop through each book on the array
   for (const book of myLibrary) {
-    // Create the main book div
     const bookDiv = document.createElement("div");
     bookDiv.classList.add("book");
-    bookDiv.dataset.bookId = book.id; // Store book ID on the DOM element for easy lookup later
+    bookDiv.dataset.bookId = book.id;
 
-    // Create the title div
     const titleDiv = document.createElement("div");
     titleDiv.classList.add("title");
     titleDiv.textContent = book.name;
 
-    // Create the img div
     const imageDiv = document.createElement("div");
     imageDiv.classList.add("img");
     imageDiv.innerHTML = svgBook;
 
-    // Create the btns div
     const btnsDiv = document.createElement("div");
     btnsDiv.classList.add("btns");
 
-    // Create the respective buttons
     const readBtn = document.createElement("button");
     readBtn.classList.add("readBtn");
     readBtn.innerHTML = svgRead;
-    // Add a class based on read status for styling (e.g., green if read, grey if unread)
+
     if (book.read) {
       readBtn.classList.add("read-true");
-      // Optionally, if you want specific text for "read" status
-      // readBtn.setAttribute('title', 'Mark as Unread');
     } else {
       readBtn.classList.add("read-false");
-      // readBtn.setAttribute('title', 'Mark as Read');
     }
-    // Add event listener for toggling read status
+
     readBtn.addEventListener("click", () => {
-      toggleReadStatus(book.id);
+      toggleReadStatus(book.id); // Pass the book's ID
     });
 
     const deleteBtn = document.createElement("button");
     deleteBtn.classList.add("deleteBtn");
     deleteBtn.innerHTML = svgDelete;
-    // Add event listener for deleting book
+
     deleteBtn.addEventListener("click", () => {
-      removeBook(book.id);
+      removeBook(book.id); // Pass the book's ID
     });
 
-    // Append buttons to btnsDiv
     btnsDiv.appendChild(readBtn);
     btnsDiv.appendChild(deleteBtn);
 
-    // Append all elements to book div
     bookDiv.appendChild(titleDiv);
     bookDiv.appendChild(imageDiv);
     bookDiv.appendChild(btnsDiv);
 
-    // Add book div to library
     library.appendChild(bookDiv);
   }
 }
 
 // --- Modal Functionality ---
 
-// Function to open the modal
 function openModal() {
-  modal.showModal(); // showModal() method makes the <dialog> element visible
-  // Optional: Reset form fields when modal opens
-  addBookForm.reset();
+  modal.showModal();
+  addBookForm.reset(); // Reset form fields when modal opens
 }
 
-// Function to close the modal
 function closeModal() {
-  modal.close(); // close() method hides the <dialog> element
+  modal.close();
 }
 
 // --- Form Submission Handler ---
-
 function handleFormSubmit(event) {
-  // Get data from form inputs
+  // Prevent default form submission if you want to handle it entirely client-side
+  // event.preventDefault(); // If you want to keep the modal open for validation, uncomment this.
+
   const name = addBookForm.elements.bookName.value;
   const author = addBookForm.elements.bookAuthor.value;
-  const pages = parseInt(addBookForm.elements.bookPages.value); // Convert pages to a number
-  const read = addBookForm.elements.bookRead.checked; // Checkbox value (true/false)
+  const pages = parseInt(addBookForm.elements.bookPages.value);
+  const read = addBookForm.elements.bookRead.checked;
 
-  // Add the new book to the library array
-  addBookToLibrary(name, author, pages, read);
+  addBookToLibrary(name, author, pages, read); // Call the function to add book
 
-  // Re-display all books to include the new one
-  displayBooks();
+  displayBooks(); // Re-render the library with the new book
 
-  // The modal will close automatically due to method="dialog" on the form.
-  // If you removed method="dialog", you would call closeModal() here.
 }
 
 // --- Book Management Functions ---
 
-// Function to remove a book from the array
 function removeBook(bookId) {
-  // Find the index of the book with the matching ID
   const bookIndex = myLibrary.findIndex((book) => book.id === bookId);
 
   if (bookIndex !== -1) {
-    // If book is found
-    myLibrary.splice(bookIndex, 1); // Remove it from the array
+    myLibrary.splice(bookIndex, 1);
     displayBooks(); // Re-render the library
   }
 }
 
-// Function to toggle the read status of a book
 function toggleReadStatus(bookId) {
-  // Find the book with the matching ID
   const bookToToggle = myLibrary.find((book) => book.id === bookId);
 
   if (bookToToggle) {
-    // If book is found
-    bookToToggle.read = !bookToToggle.read; // Toggle the boolean value
+    bookToToggle.read = !bookToToggle.read;
     displayBooks(); // Re-render the library
   }
 }
 
 // --- Event Listeners ---
-
-// Open modal when "Add Book" button is clicked
 addBookBtn.addEventListener("click", openModal);
-
-// Close modal when the 'X' button is clicked
 closeModalBtn.addEventListener("click", closeModal);
-
-// Handle form submission
 addBookForm.addEventListener("submit", handleFormSubmit);
 
 // Initial display of books when script loads
