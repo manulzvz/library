@@ -1,7 +1,7 @@
 # Library Exercise
 
-[![Estado](https://img.shields.io/badge/estado-experimental-yellow)](https://github.com/${GITHUB_REPOSITORY})
-[![Última actualización](https://img.shields.io/github/last-commit/${GITHUB_REPOSITORY})](https://github.com/${GITHUB_REPOSITORY}/commits/main)
+[![Estado](https://img.shields.io/badge/estado-experimental-yellow)](https://github.com/manulzvz/library)
+[![Última actualización](https://img.shields.io/github/last-commit/manulzvz/library)](https://github.com/manulzvz/library/commits/main)
 [![Licencia](https://img.shields.io/badge/licencia-MIT-green)](LICENSE)
 
 Personal Repository to practice Vanilla JS including classes and simple functions beside CSS styling.
