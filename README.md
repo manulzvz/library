@@ -12,22 +12,11 @@ Personal Repository to practice Vanilla JS including classes and simple function
 
 - [Library Exercise](#library-exercise)
   - [Tabla de Contenidos](#tabla-de-contenidos)
-  - [Descripción](#descripción)
   - [Tecnologías](#tecnologías)
   - [Instalación](#instalación)
   - [Estructura del Proyecto](#estructura-del-proyecto)
   - [Estado del Proyecto](#estado-del-proyecto)
   - [Contacto](#contacto)
-
----
-
-## Descripción
-
-Explica tu proyecto de manera concisa:
-
-- Propósito
-- Problema que resuelve
-- Qué aprendiste al desarrollarlo
 
 ---
 
