@@ -15,6 +15,7 @@ Personal Repository to practice Vanilla JS including classes and simple function
   - [Descripción](#descripción)
   - [Tecnologías](#tecnologías)
   - [Instalación](#instalación)
+  - [Estructura del Proyecto](#estructura-del-proyecto)
   - [Estado del Proyecto](#estado-del-proyecto)
   - [Contacto](#contacto)
 
@@ -40,12 +41,13 @@ Explica tu proyecto de manera concisa:
 
 ## Instalación
 
-````bash
+```bash
 # Clonar repositorio
 git clone https://github.com/${GITHUB_REPOSITORY}.git
 
 # Entrar al directorio
 cd ${GITHUB_REPOSITORY##*/}
+```
 
 ## Estructura del Proyecto
 
@@ -55,7 +57,7 @@ library/
 ├── scripts.js
 ├── style.css
 └── README.md
-````
+```
 
 ## Estado del Proyecto
 
